@@ -1,11 +1,16 @@
 {% load render_bundle from webpack_loader %}
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Inertja Django Test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Django InertiaJS Example">
+    {% render_bundle 'main' 'css' %}
 </head>
-<body>
-  <h1>Inertja Django Test</h1>
-  {% render_bundle 'main' %}
+<body class="container mx-auto bg-grey-lightest text-grey-darkest">
+  <div id="app" data-component="{{component}}" data-props="{{props}}"></div>
+  {% render_bundle 'main' 'js' %}
 </body>
 </html>
