@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <inertia-link href="/second">No Name</inertia-link>
+    <inertia-link href="/second">Second</inertia-link>
     <p>this would be awesome as ehll!!</p>
   </Layout>
 </template>
