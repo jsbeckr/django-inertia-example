@@ -1,0 +1,21 @@
+{
+  "name": "example",
+  "version": "0.0.0",
+  "description": "",
+  "private": true,
+  "author": "Jens Becker",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.4.0",
+    "acorn": "^6.1.1",
+    "babel-loader": "^8.0.5",
+    "node-libs-browser": "^2.2.0",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.4.1",
+    "webpack": "^4.29.6",
+    "webpack-bundle-tracker": "^0.4.2-beta",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
+  }
+}

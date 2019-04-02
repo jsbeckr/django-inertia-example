@@ -1,0 +1,8 @@
+node_modules
+
+assets/bundles/
+
+webpack-stats.json
+*.sqlite3
+.vscode
+*.pyc
