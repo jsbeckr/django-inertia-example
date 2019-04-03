@@ -2,6 +2,7 @@
   <Layout>
     <inertia-link href="/second">Second</inertia-link>
     <p>this would be awesome as ehll!!</p>
+    <button class="button">Get started</button>
   </Layout>
 </template>
 

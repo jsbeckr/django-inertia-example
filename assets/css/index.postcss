@@ -35,7 +35,13 @@
   * @import "components/buttons";
   * @import "components/forms";
   */
- 
+
+  .button {
+    @apply rounded outline-none bg-blue-dark text-white px-4 py-2 shadow font-bold;
+  
+    &:hover { @apply bg-blue; }
+    &:active { @apply bg-blue-darker; }
+  }
  /**
   * This injects all of Tailwind's utility classes, generated based on your
   * config file.

@@ -18,7 +18,7 @@ module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
   context: __dirname,
-  entry: ["./assets/js/index.js", "./assets/css/index.css"],
+  entry: ["./assets/js/index.js", "./assets/css/index.postcss"],
   output: {
     publicPath: "/static/bundles/",
     filename: "[name]-[hash].js",
@@ -67,7 +67,7 @@ module.exports = {
         use: 'vue-loader'
       },
       {
-        test: /\.css$/,
+        test: /\.postcss$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
