@@ -2,8 +2,6 @@ import json
 from django.core.exceptions import ImproperlyConfigured
 from django.views.generic.list import BaseListView
 from django.views.generic.detail import BaseDetailView
-from django.views.generic.list import MultipleObjectMixin
-from django.core import serializers
 from django.shortcuts import render
 from django.http import JsonResponse
 
