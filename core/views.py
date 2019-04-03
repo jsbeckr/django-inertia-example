@@ -1,35 +1,23 @@
+import json
 from django.shortcuts import render
 from django.http import JsonResponse
-import json
+
+from .models import Contact
+from .serializers import ContactSerializer
+
+from inertia.views import InertiaListView, InertiaDetailView
 
 
-def render_inertia(request, component, props):
-    vueComponent = f"{component}.vue"
+class Index(InertiaListView):
+    model = Contact
+    serializer = ContactSerializer
+    template_name = "index.html"
+    component_name = "Main"
+    props = None
 
-    # subsequent renders
-    if 'x-inertia' in request.headers:
-        response = JsonResponse({
-            "component": vueComponent,
-            "props": props,
-            "url": request.path
-        })
-
-        response['X-Inertia'] = True
-        response['Vary'] = 'Accept'
-        return response
-
-    # first render
-    context = {
-        "component": vueComponent,
-        "props": json.dumps(props)
-    }
-
-    return render(request, "index.html", context=context)
-
-
-def index(request):
-    return render_inertia(request, "Main", None)
-
-
-def second(request):
-    return render_inertia(request, "Second", {"test": "THIS WORKS AS WELL"})
+class Second(InertiaDetailView):
+    model = Contact
+    serializer = ContactSerializer
+    template_name = "index.html"
+    component_name = "Second"
+    props = {"test": True}

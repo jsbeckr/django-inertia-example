@@ -5,10 +5,13 @@ verify_ssl = true
 
 [dev-packages]
 flake8 = "*"
+autopep8 = "*"
+pylint = "*"
 
 [packages]
 django = "*"
 django-webpack-loader = "*"
+djangorestframework = "*"
 
 [requires]
 python_version = "3.7"

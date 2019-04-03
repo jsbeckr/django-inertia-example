@@ -1,12 +1,8 @@
 <template>
   <Layout>
     <inertia-link href="/">Home</inertia-link>
-    <ul>
-      <li>this</li>
-      <li>is</li>
-      <li>noice</li>
-      <li>TEST: {{ test }}</li>
-    </ul>
+    <h2>{{contact.name}}, {{contact.first_name}}</h2>
+    <p>Age: {{contact.age}}</p>
   </Layout>
 </template>
 
@@ -15,7 +11,7 @@ import { InertiaLink } from "inertia-vue";
 import Layout from "@/Components/Layout.vue";
 
 export default {
-  props: ['test'],
+  props: ['contact'],
   components: { Layout, InertiaLink }
 };
 </script>
