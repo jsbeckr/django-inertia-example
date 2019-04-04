@@ -10,14 +10,14 @@ from inertia.views import InertiaListView, InertiaDetailView
 
 class Index(InertiaListView):
     model = Contact
-    serializer = ContactSerializer
+    serializer_class = ContactSerializer
     template_name = "index.html"
     component_name = "Main"
     props = None
 
 class Second(InertiaDetailView):
     model = Contact
-    serializer = ContactSerializer
+    serializer_class = ContactSerializer
     template_name = "index.html"
     component_name = "Second"
     props = {"test": True}

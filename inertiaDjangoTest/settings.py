@@ -134,3 +134,5 @@ WEBPACK_LOADER = {
         'IGNORE': [r'.+\.hot-update.js', r'.+\.map']
     }
 }
+
+INERTIA_TEMPLATE = 'index.html'
