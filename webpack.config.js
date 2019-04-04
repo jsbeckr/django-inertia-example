@@ -81,7 +81,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.js', '.vue'],
     alias: {
       'vue$': 'vue/dist/vue.runtime.js',
       '@': path.resolve('assets/js'),
