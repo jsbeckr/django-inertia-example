@@ -5,7 +5,11 @@ from django.http import JsonResponse
 from .models import Contact
 from .serializers import ContactSerializer
 
-from inertia.views import InertiaListView, InertiaDetailView
+from inertia.views import InertiaListView, InertiaDetailView, render_inertia
+
+
+def dummy(request):
+    return render_inertia(request, 'Dummy', None)
 
 
 class Index(InertiaListView):

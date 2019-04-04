@@ -6,3 +6,5 @@ webpack-stats.json
 *.sqlite3
 .vscode
 *.pyc
+
+__pycache__/

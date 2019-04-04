@@ -5,6 +5,7 @@ from django.views.generic.list import BaseListView
 from django.views.generic.detail import BaseDetailView
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.middleware import csrf
 
 from rest_framework.generics import GenericAPIView
 
@@ -12,7 +13,16 @@ from django.views.generic import View
 from django.conf import settings
 
 
-def render_inertia(request, component, props, template=None):
+def _built_context(component_name, props):
+    context = {
+        "component": component_name,
+        "props": json.dumps(props)
+    }
+
+    return context
+
+
+def render_inertia(request, component_name, props, template=None):
     """
     Renders either an HttpRespone or JsonResponse of a component for 
     the use in an InertiaJS frontend integration.
@@ -30,14 +40,29 @@ def render_inertia(request, component, props, template=None):
         raise ImproperlyConfigured(
             "No Inertia template found. Either set INERTIA_TEMPLATE"
             "in settings.py or pass template parameter."
-            )
+        )
 
-    
+        # subsequent renders
+    if 'x-inertia' in request.headers:
+        response = JsonResponse({
+            "component": component_name,
+            "props": props,
+            "url": request.path
+        })
 
-    pass
+        response['X-Inertia'] = True
+        response['Vary'] = 'Accept'
+        return response
 
-#class InertiaView(Base)
-# TODO: refactor to base class + share via session
+    if props is None:
+        props = {}
+
+    props['csrf'] = csrf.get_token(request)
+
+    context = _built_context(component_name, props)
+
+    return render(request, inertia_template, context)
+
 
 class InertiaDetailView(BaseDetailView):
     template_name = ""
@@ -62,25 +87,7 @@ class InertiaDetailView(BaseDetailView):
         else:
             self.props[object_name] = serialized_object
 
-        # subsequent renders
-        if 'x-inertia' in self.request.headers:
-            response = JsonResponse({
-                "component": self.component_name,
-                "props": self.props,
-                "url": self.request.path
-            })
-
-            response['X-Inertia'] = True
-            response['Vary'] = 'Accept'
-            return response
-
-        # first render
-        custom_context = {
-            "component": self.component_name,
-            "props": json.dumps(self.props)
-        }
-
-        return render(self.request, self.template_name, context=custom_context)
+        return render_inertia(self.request, self.component_name, self.props, self.template_name)
 
 
 class InertiaListView(BaseListView):
@@ -90,8 +97,6 @@ class InertiaListView(BaseListView):
     serializer_class = None
 
     def render_to_response(self, context):
-        request = self.request
-
         if self.serializer_class is None:
             raise ImproperlyConfigured(
                 "%(cls)s is missing a ModelSerializer. Define "
@@ -109,22 +114,4 @@ class InertiaListView(BaseListView):
         else:
             self.props[object_name] = serialized_object_list
 
-        # subsequent renders
-        if 'x-inertia' in request.headers:
-            response = JsonResponse({
-                "component": self.component_name,
-                "props": self.props,
-                "url": request.path
-            })
-
-            response['X-Inertia'] = True
-            response['Vary'] = 'Accept'
-            return response
-
-        # first render
-        custom_context = {
-            "component": self.component_name,
-            "props": json.dumps(self.props)
-        }
-
-        return render(request, self.template_name, context=custom_context)
+        return render_inertia(self.request, self.component_name, self.props, self.template_name)
