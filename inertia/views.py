@@ -31,11 +31,11 @@ def render_inertia(request, component_name, props, template=None):
 
     inertia_template = None
 
-    if template is not None:
-        inertia_template = template
-
     if settings.INERTIA_TEMPLATE is not None:
         inertia_template = settings.INERTIA_TEMPLATE
+
+    if template is not None:
+        inertia_template = template
 
     if inertia_template is None:
         raise ImproperlyConfigured(
