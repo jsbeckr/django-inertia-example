@@ -6,6 +6,7 @@ from django.views.generic.detail import BaseDetailView
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.middleware import csrf
+from inertia import shared_props
 
 from rest_framework.generics import GenericAPIView
 
@@ -42,6 +43,12 @@ def render_inertia(request, component_name, props, template=None):
             "in settings.py or pass template parameter."
         )
 
+    if props is None:
+        props = {}
+
+    props['csrf'] = csrf.get_token(request)
+    props['shared'] = shared_props
+
         # subsequent renders
     if 'x-inertia' in request.headers:
         response = JsonResponse({
@@ -53,11 +60,6 @@ def render_inertia(request, component_name, props, template=None):
         response['X-Inertia'] = True
         response['Vary'] = 'Accept'
         return response
-
-    if props is None:
-        props = {}
-
-    props['csrf'] = csrf.get_token(request)
 
     context = _built_context(component_name, props)
 

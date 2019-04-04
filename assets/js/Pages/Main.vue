@@ -5,13 +5,9 @@
     <ul>
       <li :key="contact.id" v-for="contact in contact_list">
         <inertia-link :href="'/second/' + contact.id">
-          {{contact.name}}.class
+          {{contact.name}}
         </inertia-link>
-        <span> - </span>
-        <inertia-link :href="'/func/' + contact.id">
-          {{contact.name}}.function
-        </inertia-link>
-        </li>
+      </li>
     </ul>
   </Layout>
 </template>
