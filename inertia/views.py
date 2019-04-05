@@ -14,7 +14,7 @@ from django.views.generic import View
 from django.conf import settings
 
 
-def _built_context(component_name, props):
+def _build_context(component_name, props):
     context = {
         "component": component_name,
         "props": json.dumps(props)
@@ -23,7 +23,7 @@ def _built_context(component_name, props):
     return context
 
 
-def render_inertia(request, component_name, props, template=None):
+def render_inertia(request, component_name, props=None, template_name=None):
     """
     Renders either an HttpRespone or JsonResponse of a component for 
     the use in an InertiaJS frontend integration.
@@ -34,8 +34,8 @@ def render_inertia(request, component_name, props, template=None):
     if settings.INERTIA_TEMPLATE is not None:
         inertia_template = settings.INERTIA_TEMPLATE
 
-    if template is not None:
-        inertia_template = template
+    if template_name is not None:
+        inertia_template = template_name
 
     if inertia_template is None:
         raise ImproperlyConfigured(
@@ -61,15 +61,15 @@ def render_inertia(request, component_name, props, template=None):
         response['Vary'] = 'Accept'
         return response
 
-    context = _built_context(component_name, props)
+    context = _build_context(component_name, props)
 
     return render(request, inertia_template, context)
 
 
 class InertiaDetailView(BaseDetailView):
-    template_name = ""
     component_name = ""
-    props = {}
+    props = None
+    template_name = None
     serializer_class = None
 
     def render_to_response(self, context):
@@ -93,9 +93,9 @@ class InertiaDetailView(BaseDetailView):
 
 
 class InertiaListView(BaseListView):
-    template_name = ""
     component_name = ""
-    props = {}
+    props = None
+    template_name = None
     serializer_class = None
 
     def render_to_response(self, context):

@@ -9,19 +9,16 @@ from inertia.views import InertiaListView, InertiaDetailView, render_inertia
 
 
 def dummy(request):
-    return render_inertia(request, 'Dummy', None)
+    return render_inertia(request, 'Dummy')
 
 
 class Index(InertiaListView):
     model = Contact
     serializer_class = ContactSerializer
-    template_name = "index.html"
     component_name = "Main"
-    props = None
 
 class Second(InertiaDetailView):
     model = Contact
     serializer_class = ContactSerializer
-    template_name = "index.html"
     component_name = "Second"
     props = {"test": True}
