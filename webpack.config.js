@@ -1,5 +1,4 @@
 const path = require("path");
-const webpack = require('webpack');
 const BundleTracker = require('webpack-bundle-tracker');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -22,7 +21,7 @@ module.exports = {
     publicPath: "/static/bundles/",
     filename: "[name]-[hash].js",
     chunkFilename: '[name]-[hash].js',
-    path: path.resolve('./assets/bundles/'),
+    path: path.resolve('./bundles/'),
   },
 
   plugins: [

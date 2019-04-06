@@ -1,7 +1,6 @@
 node_modules
 
-core/assets/bundles/
-assets/bundles/
+bundles/
 
 webpack-stats.json
 *.sqlite3
