@@ -1,6 +1,7 @@
 node_modules
 
 core/assets/bundles/
+assets/bundles/
 
 webpack-stats.json
 *.sqlite3
@@ -8,3 +9,6 @@ webpack-stats.json
 *.pyc
 
 __pycache__/
+
+# ignore local dev package
+inertia

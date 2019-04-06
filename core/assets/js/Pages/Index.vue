@@ -5,7 +5,7 @@
     <p>User: {{shared.user.username}}</p>
     <ul>
       <li :key="contact.id" v-for="contact in contact_list">
-        <inertia-link :href="'/second/' + contact.id">
+        <inertia-link :href="'/contact/' + contact.id">
           {{contact.name}}
         </inertia-link>
       </li>

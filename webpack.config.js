@@ -34,7 +34,7 @@ module.exports = {
     }),
     new PurgecssPlugin({
       paths: glob.sync([
-        path.join(__dirname, "assets/js/**/*.vue"),
+        path.join(__dirname, "core/assets/js/**/*.vue"),
         path.join(__dirname, "core/templates/index.html")
       ]),
       extractors: [
