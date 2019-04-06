@@ -6,7 +6,7 @@
   "author": "Jens Becker",
   "license": "MIT",
   "scripts": {
-    "start": "npx webpack --watch"
+    "start": "npx webpack --watch --progress"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.3",

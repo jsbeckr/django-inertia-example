@@ -1,9 +1,22 @@
 from django.apps import AppConfig
-import inertia
+from django.contrib.auth import get_user, get_user_model
+from rest_framework import serializers
+from inertia import share
+
+
+def current_user(request):
+    class UserSerializer(serializers.ModelSerializer):
+
+        class Meta:
+            model = get_user_model()
+            fields = ["username", "email"]
+
+    return UserSerializer(get_user(request)).data
 
 
 class CoreConfig(AppConfig):
     name = 'core'
 
     def ready(self):
-        inertia.share('name', 'Django InertiaJS Example 🤘')
+        share('name', 'Django InertiaJS Example 🤘')
+        share('user', current_user)

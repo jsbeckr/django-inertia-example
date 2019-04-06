@@ -17,8 +17,7 @@ class TailwindExtractor {
 module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
-  context: __dirname,
-  entry: ["./assets/js/index.js", "./assets/css/index.postcss"],
+  entry: ["./core/assets/js/index.js", "./core/assets/css/index.postcss"],
   output: {
     publicPath: "/static/bundles/",
     filename: "[name]-[hash].js",
@@ -84,7 +83,7 @@ module.exports = {
     extensions: ['.js', '.vue'],
     alias: {
       'vue$': 'vue/dist/vue.runtime.js',
-      '@': path.resolve('assets/js'),
+      '@': path.resolve('core/assets/js'),
     }
   },
 }
