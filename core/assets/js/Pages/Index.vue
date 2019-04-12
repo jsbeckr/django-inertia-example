@@ -1,7 +1,6 @@
 <template>
   <Layout>
     <h2 class="mb-4">Contacts</h2>
-    <p>CSRF: {{csrf_token}}</p>
     <p>User: {{shared.user.username}}</p>
     <ul>
       <li :key="contact.id" v-for="contact in contact_list">
@@ -18,8 +17,7 @@ import { InertiaLink } from "inertia-vue";
 import Layout from "@/Components/Layout";
 
 export default {
-  props: ["contact_list", "csrf_token", "shared"],
+  props: ["contact_list", "shared"],
   components: { Layout, InertiaLink }
 };
 </script>
-

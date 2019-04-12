@@ -18,5 +18,5 @@ class CoreConfig(AppConfig):
     name = 'core'
 
     def ready(self):
-        share('name', 'Django InertiaJS Example 🤘')
+        share('title', 'Django Inertia.js Example 🤘')
         share('user', current_user)

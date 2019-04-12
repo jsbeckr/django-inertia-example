@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "5fb2bb4585a13daac7e61774776863669b3fa3eeb60931d703220cb246fa7923"
+            "sha256": "dee59ffe96969cfd710c04aa0ef340f1af6ea41c39f6ebc5a9858d1272ab7c44"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -39,14 +39,6 @@
             ],
             "index": "pypi",
             "version": "==3.9.2"
-        },
-        "inertia-django": {
-            "hashes": [
-                "sha256:a19c3733085b01c6c6ae517b167b04da3c7523cd16c06e3303c62459c830c897",
-                "sha256:d0e5b559636e5ffed529b1d950afe0881e42204be9fb18e90475a4975bf9b6e0"
-            ],
-            "index": "pypi",
-            "version": "==0.1.0"
         },
         "pytz": {
             "hashes": [

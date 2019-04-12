@@ -10,7 +10,6 @@ autopep8 = "*"
 [packages]
 django = "*"
 djangorestframework = "*"
-inertia-django = "*"
 django-webpack-loader = "*"
 
 [requires]
