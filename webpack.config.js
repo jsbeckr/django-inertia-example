@@ -16,9 +16,12 @@ class TailwindExtractor {
 module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
-  entry: ["./core/assets/js/index.js", "./core/assets/css/index.postcss"],
+  entry: [
+    "./core/assets/js/index.js",
+    "./core/assets/css/index.postcss"
+  ],
   output: {
-    publicPath: "/static/bundles/",
+    publicPath: "/static/",
     filename: "[name]-[hash].js",
     chunkFilename: '[name]-[hash].js',
     path: path.resolve('./bundles/'),
