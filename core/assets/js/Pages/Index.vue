@@ -1,10 +1,9 @@
 <template>
   <Layout>
-    <h2 class="mb-4">Contacts</h2>
-    <p>User: {{shared.user.username}}</p>
+    <h2 class="page-title">Contacts</h2>
     <ul>
       <li :key="contact.id" v-for="contact in contact_list">
-        <inertia-link :href="'/contact/' + contact.id">
+        <inertia-link class="font-black" :href="'/contact/' + contact.id">
           {{contact.name}}
         </inertia-link>
       </li>

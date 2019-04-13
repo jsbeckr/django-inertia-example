@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <inertia-link href="/">Home</inertia-link>
-    <h2 class="mb-4">{{contact.name}}, {{contact.first_name}}</h2>
+    <h2 class="page-title">{{contact.name}}, {{contact.first_name}}</h2>
     <p>Age: {{contact.age}}</p>
     <p>Test: {{test}}</p>
   </Layout>

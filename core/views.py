@@ -1,5 +1,6 @@
 import json
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, logout
 from django.http import JsonResponse
 
 from .models import Contact
@@ -24,4 +25,4 @@ class ContactView(InertiaDetailView):
     model = Contact
     serializer_class = ContactSerializer
     component_name = "Contact"
-    props = {"test": True} # you can inject any props you want
+    props = {"test": True}  # you can inject any props you want

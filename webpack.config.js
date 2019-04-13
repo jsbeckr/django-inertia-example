@@ -44,7 +44,8 @@ module.exports = {
           extractor: TailwindExtractor,
           extensions: ["html", "js", "vue"]
         }
-      ]
+      ],
+      whitelist: ['a']
     })
   ],
 
@@ -73,14 +74,26 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
           },
-          { loader: 'css-loader', options: { importLoaders: 1 } },
-          'postcss-loader',
-        
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: [
+                require('tailwindcss'),
+                require('autoprefixer')
+              ]
+            }
+          }
         ]
       }
     ]
   },
-
   resolve: {
     extensions: ['.js', '.vue'],
     alias: {

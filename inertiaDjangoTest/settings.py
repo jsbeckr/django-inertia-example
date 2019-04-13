@@ -138,3 +138,5 @@ WEBPACK_LOADER = {
 }
 
 INERTIA_TEMPLATE = 'index.html'
+
+LOGOUT_REDIRECT_URL = "index"
