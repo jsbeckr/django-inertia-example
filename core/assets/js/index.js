@@ -1,5 +1,9 @@
 import Inertia from 'inertia-vue';
 import Vue from 'vue';
+import axios from 'axios';
+
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
 Vue.config.productionTip = false;
 

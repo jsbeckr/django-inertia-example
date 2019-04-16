@@ -6,7 +6,7 @@
         class="border-4 border-purple-700 rounded w-2/3 text-l p-2 my-2"
         type="text"
         v-model="username"
-        placeholder="funky@tralala.dev"
+        placeholder="your_username"
       >
       <input
         class="border-4 border-purple-700 rounded w-2/3 text-l p-2 my-2"
@@ -38,6 +38,14 @@ export default {
   },
   components: {
     Layout
+  },
+  methods: {
+    login() {
+      Inertia.post("/login/", {
+        username: this.username,
+        password: this.password
+      })
+    }
   }
 };
 </script>

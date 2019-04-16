@@ -22,5 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.Index.as_view(), name='index'),
     path('contact/<pk>', views.ContactView.as_view(), name='contact_detail'),
+    path('login/', views.login_user, name="login"),
+    path('logout/', views.logout_user, name="logout"),
     path('dummy/', views.dummy)
 ]

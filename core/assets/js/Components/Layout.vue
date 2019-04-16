@@ -8,12 +8,12 @@
         v-if="page.props.shared.user.email"
         class="font-medium text-xl font-bold px-3 py-2 rounded hover:bg-purple-700 focus:bg-purple-900"
       >
-        <inertia-link href="#">Logout</inertia-link>
+        <inertia-link href="/logout">Logout</inertia-link>
       </p>
       <inertia-link
         v-else
         class="font-medium text-xl font-bold px-3 py-2 rounded hover:bg-purple-700 focus:bg-purple-900"
-        href="#"
+        href="/login"
       >Login</inertia-link>
     </div>
     <div class="container mx-auto bg-white rounded p-8 shadow-md w-full sm:w-2/3">
