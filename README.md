@@ -2,7 +2,9 @@
 
 ## Introduction
 
-This is an example repository to show of the [inertia-django](https://github.com/jsbeckr/inertia-django) adapter for [Inertia.js](https://github.com/inertiajs). 
+~~This is an example repository to show of the [inertia-django](https://github.com/jsbeckr/inertia-django) adapter for [Inertia.js](https://github.com/inertiajs).~~
+
+> **WARNING:** This is my local development project. A proper demo is in the making.
 
 ## Requirements
 
