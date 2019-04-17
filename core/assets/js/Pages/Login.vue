@@ -29,7 +29,7 @@ import Inertia from "inertia";
 import axios from "axios";
 
 export default {
-  props: ["csrf_token", "error"],
+  props: ["error"],
   data() {
     return {
       username: "",

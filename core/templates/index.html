@@ -10,7 +10,9 @@
     {% render_bundle 'main' 'css' %}
 </head>
 <body class="bg-gray-200 text-gray-800 font-sans">
-  <div id="app" data-component="{{component}}" data-props="{{props}}"></div>
+  {% comment %} easier to do it this way... take a look at assets/js/index.js {% endcomment %}
+  {{ page|json_script:"page" }}
+  <div id="app"></div>
   {% render_bundle 'main' 'js' %}
 </body>
 </html>

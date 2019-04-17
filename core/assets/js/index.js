@@ -7,13 +7,14 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
 Vue.config.productionTip = false;
 
-let app = document.getElementById('app')
+const app = document.getElementById('app')
+// we are getting the initialPage from a rendered json_script
+const page = JSON.parse(document.getElementById('page').textContent)
 
 new Vue({
   render: h => h(Inertia, {
     props: {
-      component: app.dataset.component,
-      props: JSON.parse(app.dataset.props),
+      initialPage: page,
       resolveComponent: (component) => {
         return import(`@/Pages/${component}`).then(module => module.default)
       },
