@@ -8,6 +8,9 @@ webpack-stats.json
 *.pyc
 
 __pycache__/
+.mypy_cache/
+
+.DS_STORE
 
 # ignore local dev package
 inertia

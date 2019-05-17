@@ -2,10 +2,10 @@
   <div class="h-screen flex flex-col">
     <div class="px-8 py-6 mb-8 bg-purple-800 text-white flex items-center justify-between">
       <h1>
-        <inertia-link class="text-4xl font-bold" href="/">{{page.props.shared.title}}</inertia-link>
+        <inertia-link class="text-4xl font-bold" href="/">{{$page.shared.title}}</inertia-link>
       </h1>
       <p
-        v-if="page.props.shared.user.email"
+        v-if="$page.shared.user.email"
         class="font-medium text-xl font-bold px-3 py-2 rounded hover:bg-purple-700 focus:bg-purple-900"
       >
         <inertia-link href="/logout">Logout</inertia-link>
@@ -32,8 +32,6 @@ export default {
   components: {
     InertiaLink
   },
-  props: ["shared"],
-  inject: ["page"]
 };
 </script>
 
